@@ -11,41 +11,202 @@ import { Accordion, AccordionButton, AccordionCollapse, AccordionContext, Alert,
 import { dashboard } from "@looker/sdk/lib/3.1/funcs";
 import  images  from "./images.js";
 
+
+const Letters = [
+  {
+
+    dataFilter: "A",
+    heading: "A",
+
+  },
+  {
+    dataFilter: "C",
+    heading: "C",
+  },
+  {
+    dataFilter: "D",
+    heading: "D",
+  },
+  {
+
+    dataFilter: "F",
+    heading: "F",
+
+  },
+  {
+    dataFilter: "G",
+    heading: "G",
+  },
+  {
+    dataFilter: "H",
+    heading: "H",
+  },
+
+
+  {
+
+    dataFilter: "I",
+    heading: "I",
+
+  },
+  {
+    dataFilter: "K",
+    heading: "K",
+  },
+  {
+    dataFilter: "M",
+    heading: "M",
+  },
+
+
+    {
+
+      dataFilter: "N",
+      heading: "N",
+
+    },
+    {
+      dataFilter: "O",
+      heading: "O",
+    },
+    {
+      dataFilter: "P",
+      heading: "P",
+    },
+
+
+      {
+
+        dataFilter: "R",
+        heading: "R",
+
+      },
+      {
+        dataFilter: "S",
+        heading: "S",
+      },
+      {
+        dataFilter: "T",
+        heading: "T",
+      },
+
+      {
+
+        dataFilter: "U",
+        heading: "U",
+
+      },
+      {
+        dataFilter: "W",
+        heading: "W",
+      }
+
+];
+
+
+
+const Genders = [
+  {
+    gender: "M",
+  },
+  {
+
+   gender: "F",
+  },
+  {
+
+   gender: "M,F",
+  },
+]
+
+
+
 const DashboardFilters = ({ dashboard, filters, setFilters }) => {
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 const [clicked, setClicked] = useState(false);
-// const [male, setMale] = useState(filters?.Gender);
-// const [female, setFemale] = useState(filters?.Gender);
 
-const [gender, setGender] = useState(filters?.Gender);
+const [gender, setGender] = useState(Genders);
 const [usa, setUsa] = useState(filters?.State);
 const [source, setSource] = useState(filters?.traffic_source);
+
+
+const [isActive, setIsActive] = useState(false);
+const [isActive2, setIsActive2] = useState(false);
+
+
+const handleClick = event => {
+
+    setIsActive(current => !current);
+  };
+
 
 
 useEffect(() => {
     if (clicked) {
       if (dashboard) {
         dashboard.send("dashboard:filters:update", { filters });
+        dashboard.send("dashboard:run")
+
       }
       setClicked(false);
     }
   }, [dashboard, filters, clicked]);
 
 
-const handleGenderChange = (e) => {
-    const value = e.target.value;
-    setClicked(true);
-    setGender(value);
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      Gender: value,
-    }));
-    if (dashboard) {
-      dashboard.send("dashboard:filters:update", { filters });
-    }
-  };
+// const handleGenderChange = (e) => {
+//     const value = e.target.value;
+//     setClicked(true);
+//     setGender(value);
+//     setFilters((prevFilters) => ({
+//       ...prevFilters,
+//       Gender: value,
+//     }));
+//     if (dashboard) {
+//       dashboard.send("dashboard:filters:update", { filters });
+//       dashboard.send("dashboard:run")
+//     }
+//   };
+
+
+const handleSelection = (e) => {
+  const value = e.target.value
+  const isSelected = filters.includes(value)
+  if (isSelected) {
+    setFilters(prevSelection => {
+      return prevSelection.filter(nameInSelection => nameInSelection !== value)
+    })
+  } else {
+    setFilters(prevSelection => [...prevSelection, value])
+  }
+  if (dashboard) {
+    dashboard.send("dashboard:filters:update", { filters });
+    dashboard.send("dashboard:run")
+  }
+}
+
+  // const handleSelection = (e) => {
+  // setClicked(true);
+  //   if (filters.includes(e)) {
+  //     setFilters(prevSelection => {
+  //       return prevSelection.filter(nameInSelection => nameInSelection !== e)
+  //     })
+  //   } else {
+  //     setFilters(prevSelection => ({
+  //       ...prevSelection,
+  //       e
+  //     }))
+  //   }
+  //   if (dashboard) {
+  //     dashboard.send("dashboard:filters:update", { filters });
+  //     dashboard.send("dashboard:run")
+  //   }
+  //
+  //
+  // }
+
+
 
 
   const handleSourceChange = (e) => {
@@ -61,7 +222,7 @@ const handleGenderChange = (e) => {
       }
     };
 
-    const handleUSStateChange = (e) => {
+  const handleUSStateChange = (e) => {
         const value = e.target.value;
         setClicked(true);
         setUsa(value);
@@ -76,137 +237,70 @@ const handleGenderChange = (e) => {
 
 
 
-  // const handleGenderChange = (e) => {
-  //     const value = e.target.value;
-  //     const isChecked = e.target.checked;
-  //
-  //     if (isChecked) {
-  //       setGender([...gender, value]);
-  //     } else {
-  //       setGender(gender.filter((v) => v !== value));
-  //     }
-  //
-  //     setFilters((prevFilters) => ({
-  //       ...prevFilters,
-  //       Gender: [...gender],
-  //     }));
-  //
-  //     if (dashboard) {
-  //       dashboard.send("dashboard:filters:update", { filters });
-  //     }
-  //   };
+      const [items, setItems] = useState(Letters);
+      const [lettersClicked, setLettersClicked] = useState([]);
+
+      const handleClick2 = (e) => {
+        e.currentTarget.classList.toggle("activeLetter");
+        var thisLetter = e.currentTarget.getAttribute("data-filter");
+
+        console.log(thisLetter)
+
+        if (lettersClicked.find(thisLetter)) {
+          setLettersClicked((prev) => prev.filter((letter) => letter !== thisLetter));
 
 
-
-  // const handleGenderChange = (e) => {
-  //     const value = e.target.value;
-  //     setClicked(true);
-  //
-  //
-  //     if (gender.includes(value)) {
-  //         setGender((prevGender) => prevGender.filter((v) => v !== value));
-  //       } else {
-  //         setGender((prevGender) => [...prevGender, value]);
-  //       }
-  //
-  //     setFilters((prevFilters) => ({
-  //       ...prevFilters,
-  //       Gender: value,
-  //     }));
-  //     if (dashboard) {
-  //       dashboard.send("dashboard:filters:update", { filters });
-  //     }
-  //   };
+        } else {
+          setLettersClicked((prev) => [...prev, thisLetter]);
+        }
 
 
-  // const handleFemaleChange = (e) => {
-  //     const value = e.target.value;
-  //     setClicked(true);
-  //     setFemale(value);
-  //     setFilters((prevFilters) => ({
-  //       ...prevFilters,
-  //       Gender: value,
-  //     }));
-  //     if (dashboard) {
-  //       dashboard.send("dashboard:filters:update", { filters });
-  //     }
-  //   };
-
-  // const handleMale = (e) => {
-  //   setClicked(true)
-  //   setFilters((prevFilters) => {
-  //     return {
-  //       ...prevFilters,
-  //       Gender: e.target.value,
-  //     };
-  //   });
-  //
-  //
-  //   if (dashboard) {
-  //
-  //     dashboard.send("dashboard:filters:update", { filters });
-  //   }
-  // };
-  //
-  // const handleFemale = (e) => {
-  //   setClicked(true)
-  //
-  //   setFilters((prevFilters) => {
-  //     return {
-  //       ...prevFilters,
-  //       Gender: e.target.value,
-  //     };
-  //   });
-  //
-  // };
+      };
 
 
-  // const handleSourceChange = (e) => {
-  //   setFilters((prevFilters) => {
-  //     return {
-  //       ...prevFilters,
-  //       Source: e.target.value,
-  //     };
-  //   });
-  //   if (dashboard) {
-  //
-  //     dashboard.send("dashboard:filters:update", { filters });
-  //   }
-  // };
-
+// className={lettersClicked.find(item.dataFilter)? show: hide}
 
   return (
 <div>
 
 
-<Row className="tiles coolclass">
-<div className="d-flex justify-content-between flex-wrap">
+
+
+<Row className={isActive ? 'tiles coolclass fadeIn' : 'tiles coolclass fadeOut'}>
+  <div className="filter-attr-list" id="list">
+      {Letters.map((letter, i) => (
+
+      <div key={i} className="letter" data-filter={letter.dataFilter} onClick={handleClick2}
+      className={isActive2 ? 'letter activeLetter' : 'letter'}>
+      <p key={i}>{letter.heading}</p>
+</div>
+
+
+))}
+
+
+</div>
+
+<div className="showStates">
+  {console.log(lettersClicked)}
 
 {images && images.map((item) =>
-  <div key={item.id}>
 
-
-
-
-  <Form.Group>
+  <Form.Group  className="eachState" data-filter={item.dataFilter}>
 
     <Form.Check
       type="checkbox"
       className="img-fluid"
       label=<img src={item.image} className="img-fluid"/>
-      //checked={usa === item.name}
+      // checked={usa === item.name}
       value={item.name}
       name="usa"
       onChange={handleUSStateChange}
     />
-
+   <p className="tiny text-center">{item.id}</p>
     </Form.Group>
-  </div>
 
-
-)
-
-}
+)}
 
 
 </div>
@@ -220,35 +314,24 @@ const handleGenderChange = (e) => {
 
 {console.log(filters)}
 
-
       <p className="moveDown">Filter Gender:</p>
-        <Form.Group controlId="F">
+
+  {Genders.map((gender, i) => (
+        <Form.Group>
 
           <Form.Check
             type="checkbox"
             className="lime"
             label="Female"
             name="gender"
-            checked={gender === "F"}
-            value="F"
+            checked={filters.includes(gender.gender)}
+            value={gender}
 
-            onChange={handleGenderChange}
+            onClick={handleSelection}
           />
+            </Form.Group>
+))}
 
-
-    </Form.Group>
-      <Form.Group controlId="M">
-          <Form.Check
-            type="checkbox"
-            className="red"
-            label="Male"
-            name="gender"
-            checked={gender === "M,F"}
-            value="M,F"
-
-            onChange={handleGenderChange}
-          />
-      </Form.Group>
 
 
       <p className="moveDown two">Filter Traffic Source:</p>
@@ -302,7 +385,7 @@ const handleGenderChange = (e) => {
 
 
            <p className="moveDown two">Filter States:</p>
-              <Button  className="map">
+              <Button  className="map"  onClick={handleClick}>
           <i class="fal fa-map-marker-alt"></i>
 
               </Button>

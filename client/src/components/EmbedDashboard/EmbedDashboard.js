@@ -22,9 +22,15 @@ const EmbedDashboard = ({ setDashboard, setFilters }) => {
         console.log(
           "LookerEmbedSDK.createDashboardWithId()::Successfully Loaded!"
         );
+
+
         setFilters(e.dashboard.dashboard_filters);
+
         console.log("🚀 ~ file: EmbedDashboard.js:26 ~ .on ~ e:", e);
-      })
+
+      }
+
+    )
 
       .build()
 

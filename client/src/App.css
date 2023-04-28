@@ -1255,30 +1255,30 @@ p a:hover{
 
 
 .filter-attr-list {
-    display: flex;
+  display: flex;
 
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 0em;
-    padding-left: 0rem;
-    max-width: 60%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0em;
+  padding-left: 0rem;
+  max-width: 60%;
 
 }
 
 .letter {
-    color: #913bff !important;
-    background: rgba(145, 59, 255, 0.07);
-    border-radius: 50%;
-    border-radius: 50%;
-    display: inline-block;
-    height: 2.5em;
-    width: 2.5em;
-    margin: .2em 0.5em .2em .5em;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-
+  color: #913bff !important;
+  background: rgba(145, 59, 255, 0.07);
+  border-radius: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  height: 2.5em;
+  width: 2.5em;
+  margin: .2em 0.5em .2em .5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+font-size: 12px;
 }
 
 .activeLetter {
@@ -1287,8 +1287,9 @@ p a:hover{
 }
 
 .letter  p {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 12px
 }
 
 .tiny{
@@ -1303,11 +1304,11 @@ p a:hover{
 
   flex-wrap: wrap;
   max-width: 40%;
-margin-top:1em
+  margin-top:0em
 }
 
 .letter:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal-header{
@@ -1322,64 +1323,81 @@ margin-top:1em
 
 
 .modal-dialog {
-    max-width: 80%;
-    margin: 1.75rem auto;
+  max-width: 80%;
+  margin: 1.75rem auto;
 }
 .modal {
-    position: fixed;
-    top: 20%;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    overflow: hidden;
-    outline: 0;
+  position: fixed;
+  top: 20%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  outline: 0;
 }
 
 
 .tiles.coolclass{
- max-height:100%;
- text-align:center;
- background: linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%);
- box-shadow: 0px 15px 30px 2px rgba(4, 47, 78, 0.26);
+  max-height:100%;
+  text-align:center;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%);
+  box-shadow: 0px 15px 30px 2px rgba(4, 47, 78, 0.26);
 
- padding: 0em 1em;
+  padding: 2em 1em;
 
- font-size: 12px;
- border-radius: .5rem;
- z-index: 99999999;
- position: absolute;
- top: -4%;
- min-height: 8em;
- width:98%;
- display: flex;
- justify-content: space-between;
- align-items: center;
- left: 32px;
- right: 0;
-opacity:0
+  font-size: 12px;
+  border-radius: .5rem;
+  z-index: 99999999;
+  position: absolute;
+  top: -4%;
+
+min-height: 8em;
+width: 97%;
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+left: 33px;
+right: 0;
 
 }
 
+.closeLetters{
+position: absolute;
+top: 5px;
+right: 10px;
+font-size: 17px;
+
+color: #913bff;
+
+}
+
+.closeLetters:hover,
+.tiles .form-check:hover,
+.tiles label img:hover,
+.tiles .form-check-input:hover{
+  cursor: pointer
+}
+
 .tiles {
- max-height: 0%;
- transition: 0.5s;
- overflow: hidden;
+  max-height: 0%;
+  transition: 0.5s;
+  overflow: hidden;
 }
 
 
 .fadeOut{
-opacity:0;
-height:0;
-transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+  opacity:0;
+  height:0;
+  transition: width 0.4s 0.4s, height 0.4s 0.4s, opacity 0.4s;
 
 }
 .fadeIn{
 
-     opacity:1 !important;
+  opacity:1 !important;
 
-     transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+  transition: width 0.4s, height 0.4s, opacity 0.4s 0.4s;
 
 }
 
@@ -1389,20 +1407,20 @@ transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
 
 
 .tiles .form-check {
-    position: relative;
-    display: block;
-    padding-left: 0;
-    margin: 0em 0.5em;
+  position: relative;
+  display: block;
+  padding-left: 0;
+  margin: 0em 0.5em;
 }
 
 .tiles .form-check-input {
-    position: absolute;
-    margin-top: 1rem;
-    margin-left: -.75rem;
-    z-index: 9999;
-    opacity: 0;
-    width: 26px;
-    height: 26px;
+  position: absolute;
+  margin-top: 1rem;
+  margin-left: -.75rem;
+  z-index: 9999;
+  opacity: 0;
+  width: 26px;
+  height: 26px;
 }
 
 .tiles label {
@@ -1449,10 +1467,10 @@ transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
 .map:active,
 .map:hover{
   background: transparent;
-color: #6b25ff;
-border: none;
-font-size: 26px;
-margin-left: 8px;
+  color: #6b25ff;
+  border: none;
+  font-size: 26px;
+  margin-left: 8px;
 
 }
 
@@ -1496,7 +1514,7 @@ p.moveDown.two {
   min-height: 1.5rem;
   padding-left: 1.5em;
   margin-right: -1.25em;
- font-weight: 100;
+  font-weight: 100;
 }
 
 .cc-selector .form-check-input {
@@ -1571,7 +1589,7 @@ p.moveDown.two {
 
 .yellow::before {
   content: "\f09a";
-   font-family: "Font Awesome 5 Brands";
+  font-family: "Font Awesome 5 Brands";
   font-size: 25px;
   position: absolute;
   left: 13px;
@@ -1653,9 +1671,9 @@ p.moveDown.two {
 }
 
 .form-check-input:focus {
-    border-color: #86b7fe;
-    outline: 0;
-    box-shadow: none;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: none;
 }
 
 
@@ -7911,10 +7929,10 @@ z-index: 1;
 
 
 .embed-responsive.small {
-  margin-top:50px;
+  margin-top:0px;
   margin-bottom: 140px;
   height: 100%;
-  min-height: 700px;
+  min-height: 800px;
 }
 
 
@@ -8156,6 +8174,19 @@ z-index: 1;
 
 /*Grid lg Start*/
 @media (max-width: 1199px) {
+
+
+  .tiles.coolclass{
+    top:-6%
+  }
+
+  .dropdownMenu {
+
+    top: 5px;
+    z-index: 999;
+    left: 40px;
+
+}
   .text-lg {
     font-size: 20px;
     line-height: 1.7em;
@@ -9285,7 +9316,19 @@ z-index: 1;
 
 /*Grid sm Start*/
 @media (max-width: 767px) {
+  .tiles.coolclass {
+      top: -23%;
+  }
 
+
+  .dropdownMenu {
+
+    position: relative;
+    top: unset;
+    left: 0;
+    width: 100%;
+
+}
   .theme-inner-banner {
     padding: 40px 0px;
   }

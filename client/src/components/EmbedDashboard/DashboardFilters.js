@@ -111,27 +111,25 @@ const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 const [clicked, setClicked] = useState(false);
-// const [male, setMale] = useState(filters?.Gender);
-// const [female, setFemale] = useState(filters?.Gender);
-
+const [items, setItems] = useState([]);
 const [gender, setGender] = useState(filters?.Gender);
 const [usa, setUsa] = useState(filters?.State);
 const [source, setSource] = useState(filters?.traffic_source);
 
-
 const [isActive, setIsActive] = useState(false);
-  const [isActive2, setIsActive2] = useState(false);
+
   const handleClick = event => {
 
     setIsActive(current => !current);
   };
 
 
-
 useEffect(() => {
     if (clicked) {
       if (dashboard) {
         dashboard.send("dashboard:filters:update", { filters });
+        dashboard.send("dashboard:run")
+
       }
       setClicked(false);
     }
@@ -148,6 +146,7 @@ const handleGenderChange = (e) => {
     }));
     if (dashboard) {
       dashboard.send("dashboard:filters:update", { filters });
+      dashboard.send("dashboard:run")
     }
   };
 
@@ -178,15 +177,20 @@ const handleGenderChange = (e) => {
         }
       };
 
-      const [items, setItems] = useState(Letters);
+        const handleLetterClick = (clickedLetter) => {
+            console.log(clickedLetter, items)
+          const currentlySelected = [...items];
+          console.log(clickedLetter, items)
+          if(items.includes(clickedLetter)){
+            currentlySelected.splice(currentlySelected.indexOf(clickedLetter), 1);
+              console.log(clickedLetter, items)
+          } else {
+            currentlySelected.push(clickedLetter);
+              console.log(clickedLetter, items)
+          }
+          setItems([...currentlySelected])
+            console.log(clickedLetter, items)
 
-        const handleClick2 = (e) => {
-          e.currentTarget.classList.toggle('activeLetter');
-          var thisLetter = e.currentTarget.getAttribute('data-filter');
-
-          console.log(thisLetter)
-
-    
         };
 
 
@@ -198,43 +202,49 @@ const handleGenderChange = (e) => {
 
 
 <Row className={isActive ? 'tiles coolclass fadeIn' : 'tiles coolclass fadeOut'}>
+
   <div className="filter-attr-list" id="list">
-      {Letters.map((letter, i) => (
 
-      <div key={i} className="letter" data-filter={letter.dataFilter} onClick={handleClick2}
-      className={isActive2 ? 'letter activeLetter' : 'letter'}>
-      <p key={i}>{letter.heading}</p>
-</div>
+  {Letters.map((letter, i) => (
+          <div
+            key={i}
+            className="letter"
+            data-filter={letter.dataFilter}
+            onClick={()=>handleLetterClick(letter.dataFilter)}
+            className={items.includes(letter.dataFilter) ? 'letter activeLetter' : 'letter'}>
 
-
-))}
+            <p key={i}>{letter.heading}</p>
+          </div>
+        ))}
 
 
 </div>
 
 <div className="showStates">
+  <i className="fal fa-times closeLetters" onClick={handleClick}></i>
 
+  {console.log(items)}
 
-{images && images.map((item) =>
-
-  <Form.Group className="eachState" data-filter={item.dataFilter}>
-
-    <Form.Check
-      type="checkbox"
-      className="img-fluid"
-      label=<img src={item.image} className="img-fluid"/>
-      // checked={usa === item.name}
-      value={item.name}
-      name="usa"
-      onChange={handleUSStateChange}
-    />
-   <p className="tiny text-center">{item.id}</p>
-    </Form.Group>
-
+  {items.map((item) => {
+  const selected = images.find((img) => img.dataFilter === item);
+  {console.log(selected)}
+  return (<Form.Group>
+      <Form.Check
+        type="checkbox"
+        className="img-fluid"
+        label=<img src={selected.image} className="img-fluid"/>
+        // checked={usa === item.name}
+        value={selected.name}
+        name="usa"
+        onChange={handleUSStateChange}
+      />
+     <p className="tiny text-center">{selected.id}</p>
+    </Form.Group>)
+  }
 )}
 
-
 </div>
+
 </Row>
   <div className="dropdownMenu">
 
@@ -243,11 +253,8 @@ const handleGenderChange = (e) => {
       <div className="cc-selector d-flex justify-content-center align-items-center">
 
 
-{console.log(filters)}
-
-
       <p className="moveDown">Filter Gender:</p>
-        <Form.Group controlId="F">
+        <Form.Group>
 
           <Form.Check
             type="checkbox"
@@ -268,8 +275,8 @@ const handleGenderChange = (e) => {
             className="red"
             label="Male"
             name="gender"
-            checked={gender === "M,F"}
-            value="M,F"
+            checked={gender === "M"}
+            value="M"
 
             onChange={handleGenderChange}
           />
@@ -277,8 +284,6 @@ const handleGenderChange = (e) => {
 
 
       <p className="moveDown two">Filter Traffic Source:</p>
-
-
 
             <Form.Group controlId="Email">
 

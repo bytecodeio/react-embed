@@ -23,7 +23,7 @@ const SlideOut = () => {
   let comment1 = `<i class="fal fa-analytics"></i>`
 
   let comment3 = `<i class="fal fa-tasks"></i>`
-  let comment4 = `<i class="fal fa-users"></i>`
+  // let comment4 = `<i class="fal fa-users"></i>`
   let comment5 = `<i class="fal fa-database"></i>`
 
 
@@ -33,7 +33,7 @@ const SlideOut = () => {
 
   let comment01 = `<i class="fal fa-analytics"></i><p>Analytics</p>`
   let comment03 = `<i class="fal fa-tasks"></i><p>Services</p>`
-  let comment04 = `<i class="fal fa-users"></i><p>Our Team</p>`
+  // let comment04 = `<i class="fal fa-users"></i><p>Our Team</p>`
   let comment05 = `<i class="fal fa-database"></i><p>Data Science</p>`
 
 
@@ -57,11 +57,11 @@ var selectedCubes = [
     link:"/services",
     name: <div dangerouslySetInnerHTML={{__html:comment03}} />
   },
-  {
-    font: <div dangerouslySetInnerHTML={{__html:comment4}} />,
-    link:"/team",
-    name: <div dangerouslySetInnerHTML={{__html:comment04}} />
-  },
+  // {
+  //   font: <div dangerouslySetInnerHTML={{__html:comment4}} />,
+  //   link:"/team",
+  //   name: <div dangerouslySetInnerHTML={{__html:comment04}} />
+  // },
   {
     font: <div dangerouslySetInnerHTML={{__html:comment5}} />,
     link:"/data",

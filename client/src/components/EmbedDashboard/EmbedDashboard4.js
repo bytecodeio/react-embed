@@ -28,7 +28,7 @@ const [loading, setLoading] = React.useState(true);
     el.innerHTML = "";
 
 
-  LookerEmbedSDK.createDashboardWithId(792)
+  LookerEmbedSDK.createDashboardWithId(807)
     // LookerEmbedSDK.createDashboardWithUrl('https://bytecodeef.looker.com/embed/dashboards/751?theme=Embed1')
 
 

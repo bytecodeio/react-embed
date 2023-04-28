@@ -9,7 +9,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import EmbedDashboard2 from "../EmbedDashboard/EmbedDashboard2";
 import EmbedDashboard3 from "../EmbedDashboard/EmbedDashboard3";
 import EmbedDashboard4 from "../EmbedDashboard/EmbedDashboard4";
-
+import EmbedDashboard5 from "../EmbedDashboard/EmbedDashboard5";
 import Vis from "../EmbedDashboard/VizComponent.js";
 
 import AOS from "aos";
@@ -164,10 +164,10 @@ function DataSection() {
               <div className="dropdownMenu">
 
               </div>
-              <Col sm={12} md={12} lg={12} className="embed-responsive embed-responsive-16by9">
+              <Col sm={12} md={12} lg={12} className="embed-responsive embed-responsive-16by9 small">
 
 
-                <EmbedDashboard2
+                <EmbedDashboard5
                 />
                 <div className="abso"></div>
               </Col>
@@ -180,30 +180,7 @@ function DataSection() {
         {/*<img src="./images/shape_35.svg" alt="" className="shapes bg-shape"/>*/}
       </div>
 
-      <div className="fancy-short-banner-five mt-5">
-        <div className="container">
-          <div className="bg-wrapper">
-            <div className="row align-items-center">
-              <div
-                className="col-lg-6 text-center text-lg-start"
-                data-aos="fade-right"
-              >
-                <h3 className="pe-xxl-5 md-pb-20">
-                  Learn more about our Looker services.
-                </h3>
-              </div>
-              <div
-                className="col-lg-6 text-center text-lg-end"
-                data-aos="fade-left"
-              >
-                <a to="/contact" className="msg-btn tran3s">
-                  Send Us Message
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </Container>
   );
 }
