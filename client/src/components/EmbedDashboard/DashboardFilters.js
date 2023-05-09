@@ -110,19 +110,16 @@ const DashboardFilters = ({ dashboard, filters, setFilters }) => {
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
-const [clicked, setClicked] = useState(false);
-const [items, setItems] = useState([]);
+// const [clicked, setClicked] = useState(false);
+// const [items, setItems] = useState([]);
 const [gender, setGender] = useState(filters?.Gender);
 const [usa, setUsa] = useState(filters?.State);
 const [source, setSource] = useState(filters?.traffic_source);
 
 const [isActive, setIsActive] = useState(false);
-
   const handleClick = event => {
-
     setIsActive(current => !current);
   };
-
 
 useEffect(() => {
     if (clicked) {
@@ -177,19 +174,21 @@ const handleGenderChange = (e) => {
         }
       };
 
-        const handleLetterClick = (clickedLetter) => {
-            console.log(clickedLetter, items)
-          const currentlySelected = [...items];
-          console.log(clickedLetter, items)
+
+      const [clicked, setClicked] = useState(false);
+      const [items, setItems] = useState([]);
+      const handleLetterClick = (clickedLetter) => {
+      const currentlySelected = [...items];
+
           if(items.includes(clickedLetter)){
             currentlySelected.splice(currentlySelected.indexOf(clickedLetter), 1);
-              console.log(clickedLetter, items)
-          } else {
-            currentlySelected.push(clickedLetter);
-              console.log(clickedLetter, items)
           }
-          setItems([...currentlySelected])
-            console.log(clickedLetter, items)
+          else {
+            currentlySelected.push(clickedLetter);
+
+          }
+            setItems([...currentlySelected])
+            console.log(items)
 
         };
 
@@ -223,36 +222,42 @@ const handleGenderChange = (e) => {
 <div className="showStates">
   <i className="fal fa-times closeLetters" onClick={handleClick}></i>
 
-  {console.log(items)}
+{items.map((item) => {
 
-  {items.map((item) => {
-  const selected = images.find((img) => img.dataFilter === item);
+  let selected= images.filter((img) => img.dataFilter.includes(item));
   {console.log(selected)}
-  return (<Form.Group>
+
+  return (
+
+  selected.map((selectedItem) => {
+  return (
+    <Form.Group>
       <Form.Check
         type="checkbox"
         className="img-fluid"
-        label=<img src={selected.image} className="img-fluid"/>
+        label=<img src={selectedItem.image} className="img-fluid"/>
         // checked={usa === item.name}
-        value={selected.name}
+        value={selectedItem.name}
         name="usa"
         onChange={handleUSStateChange}
       />
-     <p className="tiny text-center">{selected.id}</p>
-    </Form.Group>)
-  }
+     <p className="tiny text-center">{selectedItem.id}</p>
+       {console.log(selectedItem.name)}
+       {console.log(selectedItem.image)}
+    </Form.Group>
+    )
+  })
+
+  )
+}
 )}
 
 </div>
 
 </Row>
   <div className="dropdownMenu">
-
     <Row>
-
       <div className="cc-selector d-flex justify-content-center align-items-center">
-
-
       <p className="moveDown">Filter Gender:</p>
         <Form.Group>
 
