@@ -27,9 +27,7 @@ router.get("/embed-user/token", async (req, res) => {
  * Update the embed users permissions
  */
 router.post("/embed-user/:id/update", async (req, res) => {
-  const userCred = await sdk.ok(
-    sdk.user_for_credential("embed", req.params.id)
-  );
+  const userCred = await sdk.ok(sdk.user_for_credential("embed", req.params.id));
   const attrs = {
     value: "Jeans",
   };
@@ -46,7 +44,7 @@ const secret = process.env.LOOKERSDK_EMBED_SECRET;
 router.get("/auth", (req, res) => {
   const src = req.query.src;
   const user = config.authenticatedUser[req.headers.usertoken];
-  console.log(config.authenticatedUser[req.headers.usertoken])
+  console.log(config.authenticatedUser[req.headers.usertoken]);
   const url = createSignedUrl(src, user, host, secret);
   res.json({ url });
 });
@@ -92,14 +90,10 @@ router.get("/looks", async (req, res, next) => {
  */
 router.get("/looks/:id", async (req, res, next) => {
   let target_look = req.params.id;
-  let query_data = await sdk
-    .ok(sdk.look(target_look, "query"))
-    .catch((e) => console.log(e));
+  let query_data = await sdk.ok(sdk.look(target_look, "query")).catch((e) => console.log(e));
   delete query_data.query.client_id;
 
-  let newQuery = await sdk
-    .ok(sdk.create_query(query_data.query))
-    .catch((e) => console.log(e));
+  let newQuery = await sdk.ok(sdk.create_query(query_data.query)).catch((e) => console.log(e));
 
   let newQueryResults = await sdk
     .ok(sdk.run_query({ query_id: Number(newQuery.id), result_format: "json" }))
@@ -108,6 +102,120 @@ router.get("/looks/:id", async (req, res, next) => {
       res.send({ error: e.message });
     });
   res.send(newQueryResults);
+});
+
+/**
+ * Run the query associated with a dashboard, and return that data as a json response
+ */
+router.get("/dashboard/:id", async (req, res, next) => {
+  const { id } = req.params;
+  console.log("dashboard", id);
+  sdk
+    .ok(sdk.dashboard(id))
+    .then((res_sdk) => {
+      Promise.all(
+        res_sdk.dashboard_elements.map(
+          (element) =>
+            new Promise((resolve, reject) => {
+              sdk
+                .ok(sdk.run_query({ query_id: element.query.id, result_format: "json" }))
+                .then((res_query) => {
+                  console.log("query-data", element.title, res_query, Object.values(res_query)[0]);
+
+                  switch (element.title) {
+                    case "Website Visit Volume vs Conversion Rate":
+                      resolve({
+                        title: element.title,
+                        query:
+                          Math.round(
+                            Object.values(res_query)[0]["events.overall_conversion"] * 100
+                          ).toFixed(0) + "%",
+                        img: "./images/icon/icon_11.svg",
+                      });
+                    case "Orders To Date":
+                      resolve({
+                        title: element.title,
+                        query: Object.values(res_query)[0]["orders.number_of_orders"],
+                        img: "./images/icon/icon_08.svg",
+                      });
+                    case "Orders by Day and Category":
+                      resolve({
+                        title: element.title,
+                        query:
+                          Object.values(res_query)[0]["orders.number_of_orders"][
+                            "products.category"
+                          ]["Accessories"],
+                        img: "./images/icon/icon_31.svg",
+                      });
+                    case "Total Sales YoY":
+                      resolve({
+                        title: element.title,
+                        query:
+                          Object.values(res_query)[0]["order_items.total_sale_price"][
+                            "order_items.created_year"
+                          ]["2022"].toFixed(2),
+                        img: "./images/icon/icon_30.svg",
+                      });
+                    case "Repeat Purchase Rate":
+                      resolve({
+                        title: element.title,
+                        query:
+                          Math.round(
+                            Object.values(res_query)[0][
+                              "repeat_purchases.percentage_repeat_purchase"
+                            ] * 100
+                          ).toFixed(0) + "%",
+                        img: "./images/icon/icon_29.svg",
+                      });
+                    case "Average Order Value":
+                      resolve({
+                        title: element.title,
+                        query:
+                          "$" +
+                          Object.values(res_query)[0]["order_items.average_sale_price"].toFixed(2),
+                        img: "./images/icon/icon_09.svg",
+                      });
+                    case "Age Profile":
+                      resolve({
+                        title: element.title,
+                        query:
+                          Object.values(res_query)[0]["orders.number_of_orders"][
+                            "users.age_buckets"
+                          ]["Below 35"] + " Below 35",
+
+                        img: "./images/icon/icon_39.svg",
+                      });
+                    case "Number of Users":
+                      resolve({
+                        title: element.title,
+                        query: Object.values(res_query)[0]["users.number_of_users"],
+                        img: "./images/icon/icon_10.svg",
+                      });
+                    case "Gender Profile":
+                      resolve({
+                        title: element.title,
+                        query: Object.values(res_query)[0]["users.gender"][0],
+                        img: "./images/icon/icon_37.svg",
+                      });
+                    default:
+                      resolve({
+                        title: element.title,
+                        query: 0,
+                      });
+                  }
+                })
+                .catch((err) => {
+                  console.log("err", err);
+                  reject();
+                });
+            })
+        )
+      ).then((values) => {
+        res.send(values);
+        // setDashboardData(values);
+      });
+    })
+    .catch((e) => res.send({ error: e.message }));
 });
 
 module.exports = router;

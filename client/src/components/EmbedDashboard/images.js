@@ -218,6 +218,14 @@ const images = [
   name:'Ohio',
     dataFilter: "O"
 },
+
+{
+  id:'OK',
+  image: './images/states/OK.svg',
+  name:'Oklahoma',
+    dataFilter: "O"
+},
+
 {
   id:'OR',
   image: './images/states/OR.svg',
@@ -255,6 +263,12 @@ const images = [
   id:'TN',
   image: './images/states/TN.svg',
   name:'Tennessee',
+  dataFilter: "T"
+},
+{
+  id:'TX',
+  image: './images/states/TX.svg',
+  name:'Texas',
   dataFilter: "T"
 },
 {

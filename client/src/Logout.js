@@ -33,9 +33,9 @@ return (
                         <p className="text-lg">MiniByte delivering blazing fast, striking Looker solution.</p>
 
 
-                                                        <Link to="/login" className="btn-one ripple-btn">
-                                                                  Return to Login!
-                                                         </Link>
+                        <Link to="/login" className="btn-one ripple-btn">
+                        Return to Login!
+                        </Link>
 
                     </div>
 
@@ -45,27 +45,17 @@ return (
 
 
                     <div className="illustration-holder d-inline-block ms-xxl-5 mt-40 lg-mt-10">
-                                                  <Tilt>
-                                                      <img src="./images/ils_08.svg" alt="" className="transform-img-meta"/>
-                                                  </Tilt>
-                                                  <img src="./images/ils_08_1.svg" alt="" className="shapes oneShape"/>
-                                                  </div>
-
-                </div>
-
-
-
-
+                        <Tilt>
+                        <img src="./images/ils_08.svg" alt="" className="transform-img-meta"/>
+                        </Tilt>
+                        <img src="./images/ils_08_1.svg" alt="" className="shapes oneShape"/>
                     </div>
 
-
-
-
-
                 </div>
 
+              </div>
 
-
+                </div>
 
             </div> {/* /.container */}
 

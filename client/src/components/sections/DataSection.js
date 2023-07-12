@@ -70,7 +70,7 @@ function DataSection() {
     <Container fluid>
       <div className="theme-inner-banner" id="services">
         <Container>
-          <h2 class="intro-title text-center">Data Science</h2>
+          <h2 class="intro-title text-center">Custom Visualizations</h2>
           <ul class="page-breadcrumb style-none d-flex justify-content-center"></ul>
         </Container>
         <img src="./images/shape_38.svg" alt="" class="shapes shape-one" />
@@ -81,17 +81,15 @@ function DataSection() {
         <Container className="mb-5">
           <Row>
             <Col sm={12} md={12} lg={12}>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Using visualization components to build a custom visualization is appropriate when the custom visualization is intended for an embedded application or extension. If you want to make the custom visualization available to Looker users across a Looker instance, follow the instructions on the visualization documentation page. If you want to develop a custom visualization and upload it to the Looker Marketplace, follow the instructions on the Developing a custom visualization for the Looker Marketplace documentation page.</p>
             </Col>
           </Row>
 
           <Row>
             <div className="position-relative">
 
-              <div className="dropdownMenu">
 
-              </div>
-              <Col sm={12} md={12} lg={12} className="embed-responsive embed-responsive-16by9 small">
+              <Col sm={12} md={12} lg={12} className="embed-responsive embed-responsive-16by9 small mb-0">
 
 
                 <EmbedDashboard2
@@ -101,20 +99,9 @@ function DataSection() {
             </div>
           </Row>
 
-
-
-          <Row>
-            <Col sm={12} md={12} lg={12}>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </Col>
-          </Row>
-
           <Row>
             <div className="position-relative">
 
-              <div className="dropdownMenu">
-
-              </div>
               <Col sm={12} md={12} lg={12} className="embed-responsive embed-responsive-16by9 small">
 
 
@@ -128,17 +115,8 @@ function DataSection() {
 
 
                     <Row>
-                      <Col sm={12} md={12} lg={12}>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      </Col>
-                    </Row>
-
-                    <Row>
                       <div className="position-relative">
 
-                        <div className="dropdownMenu">
-
-                        </div>
                         <Col sm={12} md={12} lg={12} className="embed-responsive embed-responsive-16by9 small">
 
 
@@ -151,19 +129,9 @@ function DataSection() {
 
 
 
-
-          <Row>
-            <Col sm={12} md={12} lg={12}>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </Col>
-          </Row>
-
           <Row>
             <div className="position-relative">
 
-              <div className="dropdownMenu">
-
-              </div>
               <Col sm={12} md={12} lg={12} className="embed-responsive embed-responsive-16by9 small">
 
 

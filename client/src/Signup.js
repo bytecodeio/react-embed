@@ -39,7 +39,7 @@ function Signup() {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      alert(errorMessage);
       // ..
     });
 
@@ -101,7 +101,7 @@ function Signup() {
 
     <p className="mt-30">
     Already have an account?{' '}
-    <NavLink to="/login" >
+    <NavLink to="/login" className="strong">
     Sign in
     </NavLink>
     </p>

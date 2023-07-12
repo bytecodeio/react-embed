@@ -114,7 +114,7 @@ const handleShow = () => setShow(true);
 // const [items, setItems] = useState([]);
 const [gender, setGender] = useState(filters?.Gender);
 const [usa, setUsa] = useState(filters?.State);
-const [source, setSource] = useState(filters?.traffic_source);
+const [source, setSource] = useState(filters?.Traffic_Source);
 
 const [isActive, setIsActive] = useState(false);
   const handleClick = event => {
@@ -154,7 +154,7 @@ const handleGenderChange = (e) => {
       setSource(value);
       setFilters((prevFilters) => ({
         ...prevFilters,
-        traffic_source: value,
+        Traffic_Source: value,
       }));
       if (dashboard) {
         dashboard.send("dashboard:filters:update", { filters });
@@ -258,7 +258,10 @@ const handleGenderChange = (e) => {
   <div className="dropdownMenu">
     <Row>
       <div className="cc-selector d-flex justify-content-center align-items-center">
+      
       <p className="moveDown">Filter Gender:</p>
+{console.log(filters)}
+
         <Form.Group>
 
           <Form.Check
@@ -296,7 +299,7 @@ const handleGenderChange = (e) => {
                 type="checkbox"
                 className="orange"
                 label="Email"
-                // checked={source === "Email"}
+                checked={source === "Email"}
                 value="Email"
                 name="trafficSource"
                 onChange={handleSourceChange}
@@ -310,7 +313,7 @@ const handleGenderChange = (e) => {
                   type="checkbox"
                   className="yellow"
                   label="FB"
-                  // checked={source === "Facebook"}
+                  checked={source === "Facebook"}
                   value="Facebook"
                   name="trafficSource"
                   onChange={handleSourceChange}
@@ -325,7 +328,7 @@ const handleGenderChange = (e) => {
                       type="checkbox"
                       className="purple"
                       label="Search"
-                      // checked={source === "Search"}
+                      checked={source === "Search"}
                       value="Search"
                       name="trafficSource"
                       onChange={handleSourceChange}

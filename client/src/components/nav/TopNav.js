@@ -17,13 +17,10 @@ import SearchModal from './SearchModal';
 
 const TopNav = ({ changeTier, props, premium }) => {
 
-  const [activeLink, setActiveLink] = useState("home");
+  const [activeLink, setActiveLink] = useState(false);
 
   const [navbar, setNavbar] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
-
-
-
 
   const openModal = () => {
       setIsOpen(true);
@@ -57,8 +54,6 @@ const TopNav = ({ changeTier, props, premium }) => {
     });
 
 
-
-
   }, [])
 
 
@@ -76,7 +71,6 @@ const TopNav = ({ changeTier, props, premium }) => {
   }
 
 
-
   const handleUserStandard = () => {
     changeTier(false)
   }
@@ -85,10 +79,6 @@ const TopNav = ({ changeTier, props, premium }) => {
     changeTier(true);
 
   }
-
-
-
-
 
 
   return (
@@ -108,15 +98,15 @@ const TopNav = ({ changeTier, props, premium }) => {
 
               navbarScroll
               defaultActiveKey={activeLink}
-              onSelect={(selectedKey, event) => {
+              onClick={(selectedKey, event) => {
 
                 setActiveLink(selectedKey);
               }}
             >
               <Nav.Link href="/home" eventKey="home">Analytics</Nav.Link>
               <Nav.Link href="/services" eventKey="services">Services</Nav.Link>
-              <Nav.Link href="/team" eventKey="pricing">Our Team</Nav.Link>
-              <Nav.Link href="/data" eventKey="about">Data Science</Nav.Link>
+              <Nav.Link href="/data" eventKey="pricing">Custom Vis</Nav.Link>
+              <Nav.Link href="/selfservice" eventKey="about">Self Service</Nav.Link>
             </Nav>
             <div className="right-widget d-flex align-items-center ms-auto order-lg-3 position-relative">
 
@@ -127,23 +117,27 @@ const TopNav = ({ changeTier, props, premium }) => {
 
 
 
-                <button onClick={handleUserStandard} className={premium === 'true' ? 'purpleUser d-none d-lg-block' : premium === 'false' ? 'purpleClick purpleUser d-none d-lg-block' :  'purpleUser d-none d-lg-block'}>
 
-                  <TooltipButton text='Switch to standard user'/><p className="responsiveOnly">Select Standard User</p>
+
+
+
+                <button onClick={handleUserStandard} className={premium === 'true' ? 'purpleUser' : premium === 'false' ? 'purpleClick purpleUser' :  'purpleClick purpleUser'}>
+
+                  <TooltipButton text={premium === 'true' ? 'Switch to standard user' : premium === 'false' ? 'You are a standard user' :  'You are a standard user' }/>
 
                 </button>
 
 
 
-                <button onClick={handleUserPremium} className={premium === 'true' ? 'purpleClick purpleUser two d-none d-lg-block' : premium === 'false' ? 'purpleUser two d-none d-lg-block' :  'purpleUser d-none d-lg-block'}>
+                <button onClick={handleUserPremium} className={premium === 'true' ? 'purpleClick purpleUser two' : premium === 'false' ? 'purpleUser two' :  'purpleUser'}>
 
 
 
 
-               <TooltipButton text='Switch to premium user'/><p className="responsiveOnly">Select Premium User</p>
+               <TooltipButton text={premium === 'true' ? 'You are a premium user' : premium === 'false' ? 'Switch to premium user' :  'Switch to premium user' }/>
               </button>
 
-              <button onClick={handleLogout} className="send-msg-btn tran3s d-none d-lg-block">
+              <button onClick={handleLogout} className="send-msg-btn tran3s">
                 Logout
               </button>
             </div>

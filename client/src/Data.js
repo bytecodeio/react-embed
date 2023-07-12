@@ -40,18 +40,14 @@ import AOS from 'aos';
 import "aos/dist/aos.css"
 
 
-function Data() {
-
-
-
-
+function Data({ tier, premium }) {
 
 
 return (
 
 
   <>
-<TopNav/>
+<TopNav changeTier={tier} premium={premium} />
 
 <SlideOut/>
 

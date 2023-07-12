@@ -20,29 +20,52 @@ config.authenticatedUser =
     // The external_group_id is an arbitrary id, usually from an IdP
     // A folder is created for each external_group_id, for embed users to share content
     "external_group_id": "group1",
-    "group_ids": [3],
+    "group_ids": [],
     // For available permissions see: https://docs.looker.com/reference/embedding/sso-embed#permissions
     // If the code here is
+
     "permissions": [
+      // "access_data",
+      // "see_looks",
+      // "see_user_dashboards",
+      // "see_lookml_dashboards",
+      // "download_with_limit",
+      // "schedule_look_emails",
+      // "schedule_external_look_emails",
+      // "create_alerts",
+      // "see_drill_overlay",
+      // "save_content",
+      // "embed_browse_spaces",
+      // "schedule_look_emails",
+      // "send_to_sftp",
+      // "send_to_s3",
+      // "send_outgoing_webhook",
+      // "send_to_integration",
+      // "download_without_limit",
+      // "explore",
+      // "see_sql"
+
       "access_data",
-      "see_looks",
-      "see_user_dashboards",
-      "see_lookml_dashboards",
-      "download_with_limit",
-      "schedule_look_emails",
-      "schedule_external_look_emails",
-      "create_alerts",
-      "see_drill_overlay",
-      "save_content",
-      "embed_browse_spaces",
-      "schedule_look_emails",
-      "send_to_sftp",
-      "send_to_s3",
-      "send_outgoing_webhook",
-      "send_to_integration",
+      "can_create_forecast",
+      "clear_cache_refresh",
+      "create_custom_fields",
+      "create_table_calculations",
+      "deploy",
+      "develop",
       "download_without_limit",
       "explore",
-      "see_sql"
+      "manage_spaces",
+      "mobile_app_access",
+      "save_content",
+      "schedule_look_emails",
+      "see_drill_overlay",
+      "see_lookml",
+      "see_lookml_dashboards",
+      "see_looks",
+      "see_sql",
+      "see_user_dashboards",
+      "send_to_integration",
+      "use_sql_runner"
     ],
     // Models are mandatory; an emebd user can only see content and data using these models
     "models": ["excel-multisheet-example", "test_project","sales_demo_the_look", "traffic_safety"],
@@ -65,7 +88,7 @@ config.authenticatedUser =
     ],
     "models": ["excel-multisheet-example", "test_project","sales_demo_the_look", "traffic_safety"],
     //user2 will be localized into a different language
-    "user_attributes": { "locale": "es_US" }
+    "user_attributes": { "locale": "en_US" }
   }
 }
 

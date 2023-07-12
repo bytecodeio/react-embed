@@ -46,8 +46,8 @@ return (
                     <div className="row">
                         <div className="col-xl-12 col-lg-12 order-lg-1">
                             <div className="service-details-meta ps-lg-5 ms-xxl-4">
-                                <h2 className="main-title">Lorem ipsum dolor sit amet</h2>
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <h2 className="main-title">Let's connect and talk about how to unlock your data</h2>
+                                <p>MiniByte IO has helped hundreds of clients unlock value from their data to deliver business insights.</p>
                                 <img src="images/media/img_13.jpg" alt="" className="main-img-meta"/>
 
                                 <div>
@@ -58,16 +58,15 @@ return (
                                         <div className="col-lg-6">
                                             <h3 className="sub-title">Our Goal</h3>
                                             <ul className="style-none list-item md-mb-40">
-                                                <li>Various analysis options.</li>
-                                                <li>Page Load (time, number of requests).</li>
-                                                <li>Big data analysis.</li>
-                                                <li>Lorem analysis somthing</li>
+                                                <li>Solve complex problems.</li>
+                                                <li>Share knowledge.</li>
+                                                <li>Learn continuously.</li>
+                                                <li>Communicate proactively.</li>
                                             </ul>
                                         </div>
                                         <div className="col-lg-6">
                                             <h3 className="sub-title">Our Vision</h3>
-                                            <p>MiniByte IO offers a complete lineup of features from any major Maecena quis
-                                                interdum, orci at euis dapibus, mass ante pharetra tellus done.</p>
+                                            <p>Whether a project based implementation, a consulting engagement or a monthly contract of proactive services, we customize our solutions to fit our customer’s needs.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -99,8 +98,8 @@ return (
                                             <div className="block-style-fifteen mb-30">
                                                 <div className="d-flex">
                                                     <div className="text">
-                                                        <h6>Failure Ratio</h6>
-                                                        <p>We’ve very low failure ratio.</p>
+                                                        <h6>Satisfaction Ratio</h6>
+                                                        <p>We’re best for our satisfaction.</p>
                                                         <a href="#" className="details-btn">Details</a>
                                                     </div>
                                                     {/* /.text */}
@@ -109,7 +108,7 @@ return (
                                                             {/* <div className="round_per"/> */}
 
 
-                                                                      <ProgressCircle number="6"/>
+                                                                      <ProgressCircle number="86"/>
 
                                                         </div>
                                                     </div>
@@ -119,10 +118,7 @@ return (
                                         </div>
                                     </div>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum,
-                                    orci at dapibus, massa ante pharetra tellus. Maecenas interdum, orci at euismod
-                                    dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                                    interdum.</p>
+                                <p>Our team of solution architects, data engineers and Looker certified developers offer full stack services to solve the hardest data challenges. We partner with customers to bring their vision to reality.</p>
                             </div>
                             {/* /.service-details-meta */}
                         </div>

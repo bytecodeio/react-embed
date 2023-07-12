@@ -10,7 +10,7 @@ const EmbedDashboard = ({ setDashboard, setFilters }) => {
   const makeDashboard = useCallback((el) => {
     el.innerHTML = "";
 
-    LookerEmbedSDK.createDashboardWithId(789)
+    LookerEmbedSDK.createDashboardWithId('789')
       // LookerEmbedSDK.createDashboardWithUrl('https://bytecodeef.looker.com/embed/dashboards/751?theme=Embed1')
 
       .withParams({

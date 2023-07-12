@@ -20,7 +20,7 @@ function TopSection() {
       {
           icon: "icon_31",
           title: 'Looker',
-          desc: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.`,
+          desc: `Looker is a tool that helps you explore, share, and visualize your company's data so that you can make better business decisions.`,
           arrow: 'icon_20',
           datadelay: '',
           dataAos: 'fade-right',
@@ -28,7 +28,7 @@ function TopSection() {
       }, {
           icon: "icon_32",
           title: 'Retool',
-          desc: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.`,
+          desc: `Stop wrestling with UI libraries, hacking together data sources, and figuring out access controls. Start shipping apps that move your business forward.`,
           arrow: 'icon_20',
           datadelay: '100',
           dataAos: 'fade-up',
@@ -36,7 +36,7 @@ function TopSection() {
       }, {
           icon: "icon_33",
           title: 'dbt',
-          desc: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.`,
+          desc: `Data documentation is accessible, easily updated, and allows you to deliver trusted data across the organization.`,
           arrow: 'icon_20',
           dataDelay: '',
           dataAos: 'fade-left',
@@ -91,9 +91,9 @@ return (
 
 
                       <h1 className="hero-heading">MiniByte IO Solution for user<span> analytics.</span></h1>
-                      <p className="text-lg mb-50 pt-40 pe-xl-5 md-pt-30 md-mb-40">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                      <p className="text-lg mb-50 pt-40 pe-xl-5 md-pt-30 md-mb-40">Looker's Embed SDK is a library of functions that you can add to the code of your browser-based web application to manage embedded dashboards, Looks, and Explores in your web app.</p>
                       <ul className="style-none button-group d-flex align-items-center">
-                          <li className="me-4"><a href="contact-us.html" className="demo-btn ripple-btn tran3s">Lorem Ipsum</a></li>
+                          <li className="me-4"><a href="/services" className="demo-btn ripple-btn tran3s">Services</a></li>
 
                       </ul>
                 </Col>
@@ -135,12 +135,12 @@ return (
                     <Col sm={12} md={6} lg={5}  data-aos="fade-right">
                         <div className="title-style-three text-center text-lg-start">
                             <h2 className="main-title strong">
-                                <span>Excepteur</span> Duis aute irure.</h2>
+                                <span>MiniByte IO</span> Modern Data Stack.</h2>
                         </div>
 
                     </Col>
                     <Col sm={12} md={6} lg={7} data-aos="fade-left">
-                        <p className="m0 text-center text-lg-start md-pt-30">Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p className="m0 text-center text-lg-start md-pt-30">MiniByte IO is a consulting company focused on helping businesses make the best use of the valuable data they collect.</p>
                     </Col>
                 </Row>
 
@@ -152,7 +152,7 @@ return (
 
 <h3 class="sub-title">Technology we use</h3>
 
-<p>MiniByte offers a complete lineup of features from any major Maecena quis interdum, orci at euis dapibus, mass ante pharetra tellus done.</p>
+<p>MiniByte IO's team of consultants, engineers and full stack developers work with your team to provide expertise and increased capacity where needed.</p>
 
 
 <div>
@@ -188,10 +188,12 @@ return (
                 <Row>
 
                 <div className="title-style-three text-center pt50 pb50">
-            <h2 class="main-title">MiniByte Sales <span>Analytics</span></h2>
+            <h2 class="main-title">MiniByte's <span>Analytics</span></h2>
             </div>
 
              <Col sm={12} md={12} lg={12} className="mt-5 pb-5 mb-5">
+             <h3 class="sub-title">Looker's API Explorer - Get Dashboard & Run Query</h3>
+             <p>Below we have used the <span className="strong">Get Dashboard</span> API call to return the full details of the identified dashboard object. This has returned the query IDs for each tile. We can then loop through the query IDs with Looker's API call, <span className="strong">Run Query</span>.</p>
                {/*<div className="abso2"></div>*/}
                    <Vis/>
               <div className="abso"></div>
@@ -199,9 +201,9 @@ return (
             </Row>
 
 
-            <h3 class="sub-title">Software we use</h3>
+            <h3 class="sub-title">Software We Use</h3>
 
-            <p>MiniByte offers a complete lineup of features from any major Maecena quis interdum, orci at euis dapibus, mass ante pharetra tellus done.</p>
+            <p>MiniByte offers solution architecture, build and integration of data workflows, systems and pipelines from ground 0 or based on your current data structure and workflow</p>
 
 
                 <Row className="row align-items-center marginTop">
@@ -236,16 +238,16 @@ return (
                       <div className="block-style-five pt-60 md-pt-20" data-aos="fade-right">
                           <div className="title-style-one">
                               <div className="sc-title-four">WHY US</div>
-                              <h2 className="main-title strong">Lorem ipsum?</h2>
+
                           </div>
 
-                          <p className="pt-10 pb-70">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                          <p className="pt-10 pb-70">Our team of solution architects, data engineers and Looker certified developers offer full stack services to solve the hardest data challenges. </p>
 
                           <ul class="style-none list-item color-rev">
-                          <li>Ut enim ad minim veniam.</li>
-                          <li>Ut enim ad minim veniam.</li>
-                          <li>Ut enim ad minim veniam.</li>
-                          <li>Ut enim ad minim veniam.</li>
+                          <li>Looker Development to deliver data driven solutions.</li>
+                          <li>Ramp scale to meet capacity needs as required.</li>
+                          <li>Integration with the best cloud-based technologies available.</li>
+                          <li>Snap into your process – sprint planning.</li>
                           </ul>
                           <a class="btn-one mt-3" href="/services">Learn More</a>
 

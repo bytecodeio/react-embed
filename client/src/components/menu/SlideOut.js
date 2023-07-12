@@ -10,22 +10,15 @@ import { Accordion, AccordionButton, AccordionCollapse, AccordionContext, Alert,
 
 
 
-
-
-
-
-
-
-
-const SlideOut = () => {
+const SlideOut = ({ changeTier, props, premium }) => {
 
 
   let comment1 = `<i class="fal fa-analytics"></i>`
 
   let comment3 = `<i class="fal fa-tasks"></i>`
-  // let comment4 = `<i class="fal fa-users"></i>`
-  let comment5 = `<i class="fal fa-database"></i>`
 
+  let comment5 = `<i class="fal fa-chart-bar"></i>`
+  let comment4 = `<i class="fal fa-user"></i>`
 
 
 
@@ -33,9 +26,9 @@ const SlideOut = () => {
 
   let comment01 = `<i class="fal fa-analytics"></i><p>Analytics</p>`
   let comment03 = `<i class="fal fa-tasks"></i><p>Services</p>`
-  // let comment04 = `<i class="fal fa-users"></i><p>Our Team</p>`
-  let comment05 = `<i class="fal fa-database"></i><p>Data Science</p>`
 
+  let comment05 = `<i class="fal fa-chart-bar"></i><p>Custom Vis</p>`
+  let comment04 = `<i class="fal fa-user"></i><p>Self Service</p>`
 
 
 
@@ -57,16 +50,17 @@ var selectedCubes = [
     link:"/services",
     name: <div dangerouslySetInnerHTML={{__html:comment03}} />
   },
-  // {
-  //   font: <div dangerouslySetInnerHTML={{__html:comment4}} />,
-  //   link:"/team",
-  //   name: <div dangerouslySetInnerHTML={{__html:comment04}} />
-  // },
   {
     font: <div dangerouslySetInnerHTML={{__html:comment5}} />,
     link:"/data",
     name: <div dangerouslySetInnerHTML={{__html:comment05}} />
   },
+  {
+    font: <div dangerouslySetInnerHTML={{__html:comment4}} />,
+    link:"/selfservice",
+    name: <div dangerouslySetInnerHTML={{__html:comment04}} />
+  },
+
 
 
 ]
@@ -145,9 +139,9 @@ console.log(location.pathname)
 
         </div>
 
-        <div className="modal-content">
+        <div className="modal-content" onMouseLeave={() => setShow(false)}>
 
-          <div className="modal-body" onMouseLeave={() => setShow(false)}>
+          <div className="modal-body">
 
 
           {cubes.map((selectedCube) => (

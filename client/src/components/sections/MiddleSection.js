@@ -8,6 +8,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import EmbedDashboard from "../EmbedDashboard/EmbedDashboard";
 import DashboardFilters from "../EmbedDashboard/DashboardFilters";
 import DashboardFilters2 from "../EmbedDashboard/DashboardFilters2";
+import DashboardFilters3 from "../EmbedDashboard/DashboardFilters3";
 import Vis from "../EmbedDashboard/VizComponent.js";
 
 import AOS from "aos";
@@ -17,25 +18,25 @@ const ProcessContent = [
   {
     num: 1,
     className: "numb tran3s",
-    heading: "Minim Veniam",
+    heading: "Filter Gender",
     desc:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+      "Filter by male of female according to icons.",
     dataDelay: "",
   },
   {
     num: 2,
     className: "numb tran3s",
-    heading: "Minim Veniam",
+    heading: "Filter Traffic Source",
     desc:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+      "Filter by traffic source according to icons.",
     dataDelay: "50",
   },
   {
     num: 3,
     className: "numb tran3s",
-    heading: "Minim Veniam",
+    heading: "Filter by U.S. State",
     desc:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip",
+      "Filter by state. Select pin and you will see a list of letters that shows each state.",
     dataDelay: "100",
   },
 ];
@@ -81,10 +82,11 @@ function MiddleSection() {
             <Col sm={12} md={12} lg={12}>
               <div className="block-style-thirteen" data-aos="fade-right">
                 <div className="title-style-three pb-15">
-                  <div className="sc-title">Sint occaecat cupidatat</div>
+                  <div className="sc-title">Looker's Embed SDK</div>
                   <h2 className="main-title strong">
-                    Non proident <span>Duis </span> & aute.
+                    Embedded <span>Dashboard </span> & custom filters.
                   </h2>
+
                 </div>
 
                 <ul className="style-none list-item">
@@ -100,6 +102,8 @@ function MiddleSection() {
                     </li>
                   ))}
                 </ul>
+
+                <p>You can also toggle back and forth between <span className="strong">Standard User</span> and <span className="strong">Premium User</span> in the top navigation above <i class="far fa-long-arrow-up"></i> to moderate the permissions the Looker dashboard allows below <i class="far fa-long-arrow-down"></i></p>
               </div>
             </Col>
           </Row>
@@ -107,11 +111,10 @@ function MiddleSection() {
           <Row>
 
 
-
             <div className="position-relative">
 
 
-                <DashboardFilters
+                <DashboardFilters3
                   filters={filters}
                   setFilters={setFilters}
                   dashboard={dashboard}
@@ -123,6 +126,7 @@ function MiddleSection() {
 
 
                 <EmbedDashboard
+
                   setDashboard={setDashboard}
                   setFilters={setFilters}
                 />

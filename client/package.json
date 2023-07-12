@@ -9,6 +9,7 @@
     "@hookform/resolvers": "^2.8.8",
     "@looker/components": "^4.1.3",
     "@looker/embed-sdk": "1.6.1",
+    "@looker/extension-sdk-react": "^23.6.0",
     "@looker/filter-components": "^1.0.3",
     "@looker/icons": "^1.5.14",
     "@looker/sdk": "21.20.0",

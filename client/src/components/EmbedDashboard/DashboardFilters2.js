@@ -108,10 +108,12 @@ const Letters = [
 const Genders = [
   {
     gender: "M",
+    class:"red"
   },
   {
 
    gender: "F",
+   class:"lime"
   },
   {
 
@@ -292,7 +294,7 @@ const handleSelection = (e) => {
       type="checkbox"
       className="img-fluid"
       label=<img src={item.image} className="img-fluid"/>
-      // checked={usa === item.name}
+
       value={item.name}
       name="usa"
       onChange={handleUSStateChange}
@@ -321,10 +323,10 @@ const handleSelection = (e) => {
 
           <Form.Check
             type="checkbox"
-            className="lime"
+            className={gender.class}
             label="Female"
             name="gender"
-            checked={filters.includes(gender.gender)}
+            //checked={filters.includes(gender.gender)}
             value={gender}
 
             onClick={handleSelection}

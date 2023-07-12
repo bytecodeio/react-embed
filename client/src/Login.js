@@ -50,9 +50,12 @@ return (
   <div className="hero-banner-three">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-7 col-md-12 col-sm-12">
-                        <h1 className="hero-heading strong smallerh1">Next Level Client Support with MiniByte IO.</h1>
-                        <p className="text-lg">MiniByte delivering blazing fast, striking Looker solution.</p>
+                    <div className="col-lg-12 col-md-12 col-sm-12">
+                        <h1 className="hero-heading strong smallerh1">Please login with your credentials!</h1>
+
+
+                        <div className="row">
+                            <div className="col-lg-6 col-md-12 col-sm-12">
 
                         <form className="marginRight">
 
@@ -89,26 +92,22 @@ return (
                                            Login
                                        </button>
 
-
-
-
+                                       <p className="mt-30">
+                                       Need an account?{' '}
+                                       <NavLink to="/signup" className="strong">
+                                       Sign up
+                                       </NavLink>
+                                       </p>
 
                         </form>
+
+                        </div>
+                      </div>
                     </div>
 
 
 
-                    <div class="col-lg-5 col-md-12 text-lg-start  funStuff">
 
-
-                    <div className="illustration-holder d-inline-block ms-xxl-5 mt-40 lg-mt-10">
-                                                  <Tilt>
-                                                      <img src="./images/ils_08.svg" alt="" className="transform-img-meta"/>
-                                                  </Tilt>
-                                                  <img src="./images/ils_08_1.svg" alt="" className="shapes oneShape"/>
-                                                  </div>
-
-                </div>
 
 
 
